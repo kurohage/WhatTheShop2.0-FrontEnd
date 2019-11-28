@@ -1,6 +1,6 @@
 import React from "react";
 import { withNavigation } from "react-navigation";
-import { ImageBackground, View } from "react-native";
+import { Image, View } from "react-native";
 
 // NativeBase Components
 import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
@@ -22,14 +22,14 @@ const Product = ({ product, navigation }) => {
         <Card style={styles.transparent}>
           <CardItem style={styles.transparent}>
             <Left>
-              <Thumbnail
-                bordered
+              <Image
                 source={{ uri: product.image_url }}
-                style={styles.thumbnail}
+                style={{ width: 150, height: 150, left: -9 }}
               />
-              <Text style={styles.text}>{product.name}</Text>
-              <Text note style={styles.text}>
-                {product.price}
+              <Text style={styles.text}>
+                {product.name}
+                {"\n"}
+                {"\n"}Price: {product.price}
               </Text>
             </Left>
           </CardItem>
