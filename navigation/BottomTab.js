@@ -17,9 +17,11 @@ const BottomTab = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+
         if (routeName === "ProductTab") {
-          iconName = "smiley";
-          iconType = "Octicons";
+          iconName = "home";
+          iconType = "AntDesign";
+
         } else if (routeName === "ProfileTab") {
           iconName = "person";
           iconType = "MaterialIcons";
