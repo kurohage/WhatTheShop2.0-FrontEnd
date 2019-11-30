@@ -2,18 +2,20 @@ import React from "react";
 import { observer } from "mobx-react";
 
 // NativeBase Components
-import { List, Content, Button, Text, Spinner } from "native-base";
+import { List, Content, Spinner } from "native-base";
 
 // Stores
 import productStore from "../../stores/productStore";
 
 // Component
-import ProductItem from "./ProductItem";
+import Item from "./Item";
+import CartButton from "../Buttons/CartButton";
+import LogInOutButton from "../Buttons/LogInOutButton";
 
-const ProductList = ({ navigation }) => {
+const ProductList = () => {
   if (productStore.loading) return <Spinner />;
   const productList = productStore.products.map(product => (
-    <ProductItem product={product} key={product.id} />
+    <Item product={product} key={product.id} />
   ));
   return (
     <Content>
@@ -23,7 +25,13 @@ const ProductList = ({ navigation }) => {
 };
 
 ProductList.navigationOptions = {
-  title: "Product List"
+  title: "Product List",
+  headerRight: (
+    <>
+      <LogInOutButton />
+      <CartButton />
+    </>
+  )
 };
 
 export default observer(ProductList);

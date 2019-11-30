@@ -19,9 +19,8 @@ const BottomTab = createBottomTabNavigator(
         let iconName;
 
         if (routeName === "ProductTab") {
-          iconName = "home";
-          iconType = "AntDesign";
-
+          iconName = "shopping-bag";
+          iconType = "Feather";
         } else if (routeName === "ProfileTab") {
           iconName = "person";
           iconType = "MaterialIcons";

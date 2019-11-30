@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   text: {
-    color: "white",
+    color: "black",
     fontSize: 18,
-    fontWeight: "bold",
+    // fontWeight: "bold",
     opacity: 1
   },
   divider: {
