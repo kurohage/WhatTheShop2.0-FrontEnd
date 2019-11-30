@@ -12,14 +12,6 @@ class CartStore {
     else this.items.push(item);
   };
 
-  // removeItemFromCart = item =>
-  //   (this.items = this.items.filter(filteringitem => item !== filteringitem));
-
-  // checkoutCart = () => {
-  //   this.items = [];
-  //   alert("Thank you for shopping with us!");
-  // };
-
   get quantity() {
     let total = 0;
     this.items.forEach(item => (total += item.quantity));
