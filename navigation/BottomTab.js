@@ -18,8 +18,8 @@ const BottomTab = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === "ProductTab") {
-          iconName = "smiley";
-          iconType = "Octicons";
+          iconName = "shopping-bag";
+          iconType = "Feather";
         } else if (routeName === "ProfileTab") {
           iconName = "person";
           iconType = "MaterialIcons";
