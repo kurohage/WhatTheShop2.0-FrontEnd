@@ -28,8 +28,8 @@ ProductList.navigationOptions = {
   title: "Product List",
   headerRight: (
     <>
-      <CartButton />
       <LogInOutButton />
+      <CartButton />
     </>
   )
 };

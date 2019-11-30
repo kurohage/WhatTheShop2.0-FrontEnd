@@ -4,22 +4,21 @@ class CartStore {
   items = [];
 
   addItemToCart = item => {
-    const existingItem = this.items.find(
-      existingItem =>
-        item.option === existingItem.option && item.drink === existingItem.drink
+    const product = this.items.find(
+      product => item.name === product.name && item.price === product.price
     );
 
-    if (existingItem) existingItem.quantity += item.quantity;
+    if (product) product.quantity += item.quantity;
     else this.items.push(item);
   };
 
-  removeItemFromCart = item =>
-    (this.items = this.items.filter(filteringitem => item !== filteringitem));
+  // removeItemFromCart = item =>
+  //   (this.items = this.items.filter(filteringitem => item !== filteringitem));
 
-  checkoutCart = () => {
-    this.items = [];
-    alert("Thank you for shopping with us!");
-  };
+  // checkoutCart = () => {
+  //   this.items = [];
+  //   alert("Thank you for shopping with us!");
+  // };
 
   get quantity() {
     let total = 0;
