@@ -17,6 +17,7 @@ const BottomTab = createBottomTabNavigator(
       tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
+
         if (routeName === "ProductTab") {
           iconName = "shopping-bag";
           iconType = "Feather";
