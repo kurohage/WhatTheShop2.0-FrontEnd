@@ -41,10 +41,16 @@ const Product = ({ product, navigation }) => {
 
       <ListItem button style={styles.listitem}>
         <Card style={styles.transparent}>
-          <CardItem style={styles.transparent}>
+          <CardItem
+            style={styles.transparent}
+            button
+            onPress={() =>
+              navigation.navigate("ProductDetail", { product: product })
+            }
+          >
             <Left>
               <Image
-                source={{ uri: product.image_url }}
+                source={{ uri: product.image }}
                 style={{ width: 150, height: 150, left: -9 }}
               />
               <Left style={{ flexDirection: "column" }}>
