@@ -9,8 +9,8 @@ import Login from "../components/Login";
 
 const BottomTab = createBottomTabNavigator(
   {
-    ProfileTab: ProfileStack,
-    ProductTab: ProductStack
+    ProductTab: ProductStack,
+    ProfileTab: ProfileStack
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
