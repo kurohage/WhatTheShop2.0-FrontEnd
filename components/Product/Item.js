@@ -20,31 +20,41 @@ import {
 // Style
 import styles from "./styles";
 
-const Product = ({ product, navigation }) => {
+// const Product = ({ product, navigation }) => {
+class ProductItem extends Component {
+  state = {
+    name: "",
+    size: "L",
+    quantity: 1
+  };
+
   handlePress = () =>
     navigation.navigate("ProductDetailsList", {
       productId: product.id,
       productName: product.name
     });
 
-  const tacklePress = () => cartStore.addItemToCart(this.state);
+  tacklePress = () => cartStore.addItemToCart(this.state);
 
-  const changeSize = value =>
+  // changeSize = value =>
+  //   this.setState({
+  //     size: value
+  //   });
+
+  updateName = value =>
     this.setState({
-      size: value
+      name: value
     });
 
-  return (
-    <>
-      {/* <View style={styles.overlay} /> */}
-      {/* <ListItem button onPress={handlePress} style={styles.listitem}> */}
-
+  render() {
+    const { product } = this.props;
+    return (
       <ListItem button style={styles.listitem}>
         <Card style={styles.transparent}>
           <CardItem style={styles.transparent}>
             <Left>
               <Image
-                source={{ uri: product.image_url }}
+                source={{ uri: product.image }}
                 style={{ width: 150, height: 150, left: -9 }}
               />
               <Left style={{ flexDirection: "column" }}>
@@ -66,7 +76,7 @@ const Product = ({ product, navigation }) => {
                   <Picker.Item label="Medium" value="M" />
                   <Picker.Item label="Large" value="L" />
                 </Picker> */}
-                <Button success onPress={tacklePress}>
+                <Button success onPress={this.tacklePress}>
                   <Text>Add to Cart</Text>
                 </Button>
               </Left>
@@ -74,8 +84,8 @@ const Product = ({ product, navigation }) => {
           </CardItem>
         </Card>
       </ListItem>
-    </>
-  );
-};
+    );
+  }
+}
 
-export default withNavigation(Product);
+export default withNavigation(ProductItem);

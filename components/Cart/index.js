@@ -11,7 +11,7 @@ import { observer } from "mobx-react";
 class CartList extends Component {
   render() {
     const cartItems = cartStore.items.map(item => (
-      <CartItem item={item} key={`${item.name} ${item.price}`} />
+      <CartItem item={item} key={`${item.size} ${item.price}`} />
     ));
 
     return (
