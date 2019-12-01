@@ -7,5 +7,5 @@ export const instance = axios.create({
 */
 
 export const instance = axios.create({
-  baseURL: "http://192.168.100.72:8000/api/"
+  baseURL: "https://beanies.mbhbox.net/api/"
 });
