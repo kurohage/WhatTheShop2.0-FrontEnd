@@ -4,9 +4,7 @@ class CartStore {
   items = [];
 
   addItemToCart = item => {
-    const product = this.items.find(
-      product => item.name === product.name && item.price === product.price
-    );
+    const product = this.items.find(product => item.name === product.name);
 
     if (product) product.quantity += item.quantity;
     else this.items.push(item);

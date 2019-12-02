@@ -20,12 +20,12 @@ import {
 // Style
 import styles from "./styles";
 
-// const Product = ({ product, navigation }) => {
 class ProductItem extends Component {
   state = {
-    name: "",
+    name: this.props.product.name,
     size: "L",
-    quantity: 1
+    quantity: 1,
+    price: this.props.product.price
   };
 
   handlePress = () =>
@@ -34,17 +34,9 @@ class ProductItem extends Component {
       productName: product.name
     });
 
-  tacklePress = () => cartStore.addItemToCart(this.state);
-
-  // changeSize = value =>
-  //   this.setState({
-  //     size: value
-  //   });
-
-  updateName = value =>
-    this.setState({
-      name: value
-    });
+  tacklePress = () => {
+    cartStore.addItemToCart(this.state);
+  };
 
   render() {
     const { product } = this.props;
@@ -64,18 +56,6 @@ class ProductItem extends Component {
                   {product.description}
                   {"\n"}Price: {product.price}KD
                 </Text>
-                {/* <Picker
-                  note
-                  mode="dropdown"
-                  style={styles.picker}
-                  onValueChange={this.changeSize}
-                  selectedValue={this.state.size}
-                  placeholder="Choose Size"
-                >
-                  <Picker.Item label="Small" value="S" />
-                  <Picker.Item label="Medium" value="M" />
-                  <Picker.Item label="Large" value="L" />
-                </Picker> */}
                 <Button success onPress={this.tacklePress}>
                   <Text>Add to Cart</Text>
                 </Button>
