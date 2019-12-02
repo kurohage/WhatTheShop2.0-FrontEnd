@@ -21,11 +21,9 @@ import NumericInput from "react-native-numeric-input";
 import Icon from "react-native-ionicons";
 
 // Stores
-import productStore from "../../stores/productStore";
 import cartStore from "../../stores/cartStore";
 
 // Component
-import Item from "../Product/Item";
 import CartButton from "../Buttons/CartButton";
 import LogInOutButton from "../Buttons/LogInOutButton";
 

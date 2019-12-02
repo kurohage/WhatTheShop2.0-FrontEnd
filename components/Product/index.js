@@ -8,14 +8,14 @@ import { List, Content, Spinner } from "native-base";
 import productStore from "../../stores/productStore";
 
 // Component
-import Item from "./Item";
+import ProductItem from "./ProductItem";
 import CartButton from "../Buttons/CartButton";
 import LogInOutButton from "../Buttons/LogInOutButton";
 
 const ProductList = () => {
   if (productStore.loading) return <Spinner />;
   const productList = productStore.products.map(product => (
-    <Item product={product} key={product.id} />
+    <ProductItem product={product} key={product.id} />
   ));
   return (
     <Content>
