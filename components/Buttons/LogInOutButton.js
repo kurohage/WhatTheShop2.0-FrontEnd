@@ -8,14 +8,12 @@ import authStore from "../../stores/authStore";
 
 const LogInOutButton = ({ navigation }) => {
   return (
-    <>
-      <Icon
-        name="login"
-        type="Entypo"
-        onPress={() => navigation.navigate("LoginScreen")}
-        containerStyle
-      />
-    </>
+    <Icon
+      name="login"
+      type="Entypo"
+      onPress={() => navigation.navigate("LoginScreen")}
+      containerStyle
+    />
   );
 };
 

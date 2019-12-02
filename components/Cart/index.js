@@ -11,13 +11,13 @@ import { observer } from "mobx-react";
 class CartList extends Component {
   render() {
     const cartItems = cartStore.items.map(item => (
-      <CartItem item={item} key={`${item.name} ${item.price}`} />
+      <CartItem item={item} key={`${item.size} ${item.price}`} />
     ));
 
     return (
       <List>
         {cartItems}
-        <Button full danger>
+        <Button full danger onPress={cartStore.checkoutCart}>
           <Text>Checkout</Text>
         </Button>
       </List>

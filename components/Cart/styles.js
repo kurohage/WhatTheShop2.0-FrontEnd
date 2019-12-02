@@ -4,11 +4,7 @@ const styles = StyleSheet.create({
   listStyle: {
     borderBottomWidth: 0
   },
-  drink: {
-    color: "#42566E",
-    marginLeft: 16
-  },
-  option: {
+  style1: {
     marginLeft: 16
   },
   quantity: {

@@ -9,13 +9,13 @@ import cartStore from "../../stores/cartStore";
 const CartButton = ({ navigation }) => {
   return (
     <>
-      <Text>{cartStore.quantity}</Text>
       <Icon
         name="shoppingcart"
         type="AntDesign"
         onPress={() => navigation.navigate("Cart")}
         containerStyle
       />
+      <Text>{cartStore.quantity}</Text>
     </>
   );
 };
