@@ -3,7 +3,6 @@ import { withNavigation } from "react-navigation";
 import { Image, View } from "react-native";
 
 // Stores
-import productStore from "../../stores/productStore";
 import cartStore from "../../stores/cartStore";
 
 // NativeBase Components
@@ -47,7 +46,9 @@ class ProductItem extends Component {
             style={styles.transparent}
             button
             onPress={() =>
-              navigation.navigate("ProductDetail", { product: product })
+              this.props.navigation.navigate("ProductDetail", {
+                product: product
+              })
             }
           >
             <Left>
