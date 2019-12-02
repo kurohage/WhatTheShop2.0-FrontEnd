@@ -43,7 +43,13 @@ class ProductItem extends Component {
     return (
       <ListItem button style={styles.listitem}>
         <Card style={styles.transparent}>
-          <CardItem style={styles.transparent}>
+          <CardItem
+            style={styles.transparent}
+            button
+            onPress={() =>
+              navigation.navigate("ProductDetail", { product: product })
+            }
+          >
             <Left>
               <Image
                 source={{ uri: product.image }}
