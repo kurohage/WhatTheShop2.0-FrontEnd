@@ -24,7 +24,7 @@ class ProductItem extends Component {
     name: this.props.product.name,
     size: "L",
     quantity: 1,
-    price: this.props.product.price
+    total_price: ""
   };
 
   handlePress = () =>

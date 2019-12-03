@@ -29,13 +29,15 @@ import LogInOutButton from "../Buttons/LogInOutButton";
 
 class ProductDetail extends Component {
   state = {
-    quantity: 0,
-    glasses_on: false
+    glasses_on: false,
+    name: this.props.navigation.getParam("product").name,
+    size: "",
+    quantity: 1,
+    total_price: ""
   };
 
   handleAdd = () => {
     cartStore.addItemToCart(this.state);
-    this.setState({ quantity: 1 });
   };
 
   toggleGlasses = () => {
@@ -43,8 +45,7 @@ class ProductDetail extends Component {
   };
 
   render() {
-    const product = this.props.navigation.getParam("product");
-
+    product = this.props.navigation.getParam("product");
     return (
       <Content>
         <Card>
