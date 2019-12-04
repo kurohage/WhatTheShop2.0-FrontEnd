@@ -28,9 +28,8 @@ class ProductItem extends Component {
   };
 
   handlePress = () =>
-    navigation.navigate("ProductDetailsList", {
-      productId: product.id,
-      productName: product.name
+    this.props.navigation.navigate("ProductDetail", {
+      product: this.props.product
     });
 
   tacklePress = () => {
@@ -45,11 +44,7 @@ class ProductItem extends Component {
           <CardItem
             style={styles.transparent}
             button
-            onPress={() =>
-              this.props.navigation.navigate("ProductDetail", {
-                product: product
-              })
-            }
+            onPress={this.handlePress}
           >
             <Left>
               <Image
