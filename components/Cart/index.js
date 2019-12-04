@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
 // NativeBase Components
-import { Text, List, Button } from "native-base";
+import { List } from "native-base";
 
 // Component
+import CheckoutButton from "../Buttons/CheckoutButton";
 import CartItem from "./CartItem";
 import cartStore from "../../stores/cartStore";
 import { observer } from "mobx-react";
@@ -17,9 +18,7 @@ class CartList extends Component {
     return (
       <List>
         {cartItems}
-        <Button full danger onPress={cartStore.checkoutCart}>
-          <Text>Checkout</Text>
-        </Button>
+        <CheckoutButton />
       </List>
     );
   }
