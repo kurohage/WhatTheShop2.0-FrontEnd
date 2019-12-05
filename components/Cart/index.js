@@ -6,8 +6,10 @@ import { List } from "native-base";
 // Component
 import CheckoutButton from "../Buttons/CheckoutButton";
 import CartItem from "./CartItem";
-import cartStore from "../../stores/cartStore";
 import { observer } from "mobx-react";
+
+// Stores
+import cartStore from "../../stores/cartStore";
 
 class CartList extends Component {
   render() {

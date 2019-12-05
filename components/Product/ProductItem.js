@@ -21,16 +21,16 @@ import styles from "./styles";
 
 class ProductItem extends Component {
   state = {
+    // product: this.props.product,
     name: this.props.product.name,
     size: "L",
-    quantity: 1,
-    total_price: ""
+    quantity: 1
+    // total_price: ""
   };
 
   handlePress = () =>
-    navigation.navigate("ProductDetailsList", {
-      productId: product.id,
-      productName: product.name
+    this.props.navigation.navigate("ProductDetail", {
+      product: this.props.product
     });
 
   tacklePress = () => {
@@ -45,11 +45,7 @@ class ProductItem extends Component {
           <CardItem
             style={styles.transparent}
             button
-            onPress={() =>
-              this.props.navigation.navigate("ProductDetail", {
-                product: product
-              })
-            }
+            onPress={this.handlePress}
           >
             <Left>
               <Image
@@ -59,9 +55,8 @@ class ProductItem extends Component {
               <Left style={{ flexDirection: "column" }}>
                 <Text style={styles.text}>
                   {product.name}
-                  {"\n"}
-                  {product.description}
                   {"\n"}Price: {product.price}KD
+                  {"\n"}
                 </Text>
                 <Button success onPress={this.tacklePress}>
                   <Text>Add to Cart</Text>
