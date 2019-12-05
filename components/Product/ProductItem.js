@@ -21,10 +21,11 @@ import styles from "./styles";
 
 class ProductItem extends Component {
   state = {
+    // product: this.props.product,
     name: this.props.product.name,
     size: "L",
-    quantity: 1,
-    total_price: ""
+    quantity: 1
+    // total_price: ""
   };
 
   handlePress = () =>
@@ -34,6 +35,7 @@ class ProductItem extends Component {
 
   tacklePress = () => {
     cartStore.addItemToCart(this.state);
+    cartStore.addItemToAsyncStorage(this.state);
   };
 
   render() {
