@@ -54,9 +54,8 @@ class ProductItem extends Component {
               <Left style={{ flexDirection: "column" }}>
                 <Text style={styles.text}>
                   {product.name}
-                  {"\n"}
-                  {product.description}
                   {"\n"}Price: {product.price}KD
+                  {"\n"}
                 </Text>
                 <Button success onPress={this.tacklePress}>
                   <Text>Add to Cart</Text>
