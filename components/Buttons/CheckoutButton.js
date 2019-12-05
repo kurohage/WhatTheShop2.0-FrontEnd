@@ -9,7 +9,6 @@ import authStore from "../../stores/authStore";
 
 const CheckoutButton = ({ navigation }) => {
   const handlePress = () => {
-    cartStore.retrieveCart();
     if (authStore.user) cartStore.checkoutCart();
     else navigation.navigate("Login");
   };

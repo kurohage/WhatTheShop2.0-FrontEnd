@@ -29,8 +29,9 @@ class CartStore {
   }
 
   retrieveCart = async () => {
-    const cart_items = await AsyncStorage.getItem("Cart");
-    console.log("Items", cart_items);
+    retrieved_items = await AsyncStorage.getItem("Cart");
+    this.items = JSON.parse(retrieved_items);
+    console.log("Items", retrieved_items);
   };
 }
 
@@ -41,5 +42,4 @@ decorate(CartStore, {
 
 const cartStore = new CartStore();
 cartStore.retrieveCart();
-
 export default cartStore;
