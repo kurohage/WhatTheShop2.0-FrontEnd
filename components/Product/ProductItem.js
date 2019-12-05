@@ -35,7 +35,6 @@ class ProductItem extends Component {
 
   tacklePress = () => {
     cartStore.addItemToCart(this.state);
-    cartStore.addItemToAsyncStorage(this.state);
   };
 
   render() {
