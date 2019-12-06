@@ -12,7 +12,7 @@ const LoginLogoutButton = ({ navigation }) => {
   };
   return (
     <>
-      {authStore.user ? (
+      {!authStore.user ? (
         <Icon name="login" type="Entypo" onPress={handlePress} containerStyle />
       ) : (
         <Icon
