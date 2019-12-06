@@ -25,7 +25,7 @@ import cartStore from "../../stores/cartStore";
 
 // Component
 import CartButton from "../Buttons/CartButton";
-import LogInOutButton from "../Buttons/LogInOutButton";
+import LoginLogoutButton from "../Buttons/LoginLogoutButton";
 
 class ProductDetail extends Component {
   state = {
@@ -102,7 +102,7 @@ ProductDetail.navigationOptions = {
   title: "Product Detail",
   headerRight: (
     <>
-      <LogInOutButton />
+      <LoginLogoutButton />
       <CartButton />
     </>
   )

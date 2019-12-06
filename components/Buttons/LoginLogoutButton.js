@@ -6,19 +6,19 @@ import { observer } from "mobx-react";
 // Stores
 import authStore from "../../stores/authStore";
 
-const LogInOutButton = ({ navigation }) => {
+const LoginLogoutButton = ({ navigation }) => {
   const handlePress = () => {
     if (!authStore.user) navigation.navigate("Login");
   };
   return (
     <>
-      {authStore.user ? (
+      {!authStore.user ? (
         <Icon name="login" type="Entypo" onPress={handlePress} containerStyle />
       ) : (
         <Icon
           name="log-out"
           type="Entypo"
-          onPress={handlePress}
+          onPress={authStore.logout}
           containerStyle
         />
       )}
@@ -26,4 +26,4 @@ const LogInOutButton = ({ navigation }) => {
   );
 };
 
-export default withNavigation(observer(LogInOutButton));
+export default withNavigation(observer(LoginLogoutButton));

@@ -14,8 +14,11 @@ class CartStore {
     console.log("Items Added" + JSON.stringify(this.items));
   };
 
-  removeItemFromCart = item =>
-    (this.items = this.items.filter(filteringitem => item !== filteringitem));
+  removeItemFromCart = item => {
+    this.items = this.items.filter(filteringitem => item !== filteringitem);
+    AsyncStorage.setItem("Cart", JSON.stringify(this.items));
+    console.log("Items Now" + JSON.stringify(this.items));
+  };
 
   checkoutCart = () => {
     this.items = [];
@@ -28,7 +31,7 @@ class CartStore {
     return total;
   }
 
-  retrieveCart = async () => {
+  retrieveItems = async () => {
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
     console.log("Items", retrieved_items);
@@ -41,5 +44,5 @@ decorate(CartStore, {
 });
 
 const cartStore = new CartStore();
-cartStore.retrieveCart();
+cartStore.retrieveItems();
 export default cartStore;

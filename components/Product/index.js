@@ -10,7 +10,7 @@ import productStore from "../../stores/productStore";
 // Component
 import ProductItem from "./ProductItem";
 import CartButton from "../Buttons/CartButton";
-import LogInOutButton from "../Buttons/LogInOutButton";
+import LoginLogoutButton from "../Buttons/LoginLogoutButton";
 
 const ProductList = () => {
   if (productStore.loading) return <Spinner />;
@@ -28,7 +28,7 @@ ProductList.navigationOptions = {
   title: "Product List",
   headerRight: (
     <>
-      <LogInOutButton />
+      <LoginLogoutButton />
       <CartButton />
     </>
   )
