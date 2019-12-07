@@ -44,21 +44,17 @@ class CartStore {
     console.log("Items", retrieved_items);
   };
 
-  // postToBackend = async items => {
-  //   try {
-  //     const res = await instance.post("orders/", items);
-  //     const items = res.data;
-  //     // this.items.unshift(items);
-  //     this.errors = null;
-  //   } catch (err) {
-  //     this.errors = errToArray("Error", err.response.data);
-  //   }
-  // };
-
-  // submit = async event => {
-  //   event.preventDefault();
-  //   await cartStore.postToBackend(this.items);
-  // };
+  passItems = async newItems => {
+    try {
+      const res = await instance.post("order_create/", newItems);
+      const new_items = res.data;
+      items.push(new_items);
+      this.errors = null;
+      console.log("new_items", new_items);
+    } catch (err) {
+      this.errors = errToArray(err.response.data);
+    }
+  };
 }
 
 decorate(CartStore, {

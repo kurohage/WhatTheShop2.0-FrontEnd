@@ -1,7 +1,6 @@
 import React from "react";
 import { withNavigation } from "react-navigation";
 import { Button, Text } from "native-base";
-import { Alert } from "react-native";
 import { observer } from "mobx-react";
 
 // Stores
@@ -13,6 +12,7 @@ const CheckoutButton = ({ navigation }) => {
     if (authStore.user) {
       cartStore.checkoutCart();
       // Can't clear Cart beacause of the iteration methods running over cart items
+      cartStore.passItems(cartStore.items);
       setTimeout(function() {
         // Block will be executed after a 3 second delay
         navigation.navigate("ProductList");
