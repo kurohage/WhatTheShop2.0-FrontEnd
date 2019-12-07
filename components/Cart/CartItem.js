@@ -5,16 +5,18 @@ import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
 // Style
 import styles from "./styles";
+
+// Stores
 import cartStore from "../../stores/cartStore";
 
 const CartItem = ({ item }) => {
   return (
     <ListItem style={styles.listStyle}>
       <Left>
-        <Text style={styles.style1}> {item.name} </Text>
-        <Text style={styles.style1}> {item.size} </Text>
-        <Text style={styles.style1}>{item.quantity}</Text>
-        <Text style={styles.style1}>{item.price}</Text>
+        <Text style={styles.itemStyle}> {item.name} </Text>
+        <Text style={styles.itemStyle}> {item.size} </Text>
+        <Text style={styles.itemStyle}>{item.quantity}</Text>
+        <Text style={styles.itemStyle}>{item.price}</Text>
       </Left>
       <Right>
         <Button transparent onPress={() => cartStore.removeItemFromCart(item)}>
