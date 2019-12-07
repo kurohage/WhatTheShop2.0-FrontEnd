@@ -10,6 +10,8 @@ class AuthStore {
     if (token) {
       // Save token to localStorage
       await AsyncStorage.setItem("myToken", token);
+      // If I setItem "myProfile" to profile(user.profile) that I pass with login?
+      // Yet, the issue might be setting two items in asyncstore, not in one step.
       // Set token to Auth header
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user

@@ -8,6 +8,8 @@ import { Card, CardItem, Text, Button } from "native-base";
 import authStore from "../../stores/authStore";
 
 const Profile = props => {
+  // const profile = await AsyncStorage.getItem("myProfile");
+  // console.log(profile);
   if (!authStore.user)
     return (
       <Card>
