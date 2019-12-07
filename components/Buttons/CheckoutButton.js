@@ -1,6 +1,7 @@
 import React from "react";
 import { withNavigation } from "react-navigation";
 import { Button, Text } from "native-base";
+import { Alert } from "react-native";
 import { observer } from "mobx-react";
 
 // Stores
@@ -9,9 +10,14 @@ import authStore from "../../stores/authStore";
 
 const CheckoutButton = ({ navigation }) => {
   const handlePress = () => {
-    if (authStore.user) cartStore.checkoutCart();
-    else navigation.navigate("Login");
-    // Can't clear Cart beacause of the iteration methods running over cart items
+    if (authStore.user) {
+      cartStore.checkoutCart();
+      // Can't clear Cart beacause of the iteration methods running over cart items
+      setTimeout(function() {
+        // Block will be executed after a 3 second delay
+        navigation.navigate("ProductList");
+      }, 3000);
+    } else navigation.navigate("Login");
   };
   return (
     <>
