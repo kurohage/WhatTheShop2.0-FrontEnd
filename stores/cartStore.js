@@ -1,5 +1,6 @@
 import { computed, decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
+import { instance } from "./instance";
 
 class CartStore {
   items = [];
@@ -31,11 +32,33 @@ class CartStore {
     return total;
   }
 
+  get total_price() {
+    let total_price = 0;
+    this.items.forEach(item => (total_price += item.quantity * item.price));
+    return total_price;
+  }
+
   retrieveItems = async () => {
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
     console.log("Items", retrieved_items);
   };
+
+  // postToBackend = async items => {
+  //   try {
+  //     const res = await instance.post("orders/", items);
+  //     const items = res.data;
+  //     // this.items.unshift(items);
+  //     this.errors = null;
+  //   } catch (err) {
+  //     this.errors = errToArray("Error", err.response.data);
+  //   }
+  // };
+
+  // submit = async event => {
+  //   event.preventDefault();
+  //   await cartStore.postToBackend(this.items);
+  // };
 }
 
 decorate(CartStore, {

@@ -11,11 +11,12 @@ const CheckoutButton = ({ navigation }) => {
   const handlePress = () => {
     if (authStore.user) cartStore.checkoutCart();
     else navigation.navigate("Login");
+    // Can't clear Cart beacause of the iteration methods running over cart items
   };
   return (
     <>
       <Button full danger onPress={handlePress}>
-        <Text>Checkout</Text>
+        <Text>Checkout Total: {cartStore.total_price.toFixed(3)}KD</Text>
       </Button>
     </>
   );

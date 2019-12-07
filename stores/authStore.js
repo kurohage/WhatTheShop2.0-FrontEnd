@@ -1,8 +1,7 @@
 import { decorate, observable } from "mobx";
 import { AsyncStorage } from "react-native";
-import jwt_decode from "jwt-decode";
-
 import { instance } from "./instance";
+import jwt_decode from "jwt-decode";
 
 class AuthStore {
   user = null;

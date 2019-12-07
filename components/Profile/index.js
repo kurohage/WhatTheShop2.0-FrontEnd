@@ -18,16 +18,16 @@ const Profile = props => {
         </CardItem>
       </Card>
     );
-  else
-    return (
-      <Card>
-        <Text>Hello {authStore.user.user_id}</Text>
-        <CardItem>
-          <Button danger onPress={authStore.logout}>
-            <Text>Logout</Text>
-          </Button>
-        </CardItem>
-      </Card>
-    );
+  // cleaned
+  return (
+    <Card>
+      <Text>Hello {authStore.user.user_id}</Text>
+      <CardItem>
+        <Button danger onPress={authStore.logout}>
+          <Text>Logout</Text>
+        </Button>
+      </CardItem>
+    </Card>
+  );
 };
 export default observer(Profile);

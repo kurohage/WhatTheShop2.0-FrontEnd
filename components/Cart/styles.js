@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   listStyle: {
     borderBottomWidth: 0
   },
-  style1: {
+  itemStyle: {
     marginLeft: 16
   },
   quantity: {

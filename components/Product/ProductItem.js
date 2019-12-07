@@ -24,7 +24,8 @@ class ProductItem extends Component {
     // product: this.props.product,
     name: this.props.product.name,
     size: "L",
-    quantity: 1
+    quantity: 1,
+    price: this.props.product.price
     // total_price: ""
   };
 
