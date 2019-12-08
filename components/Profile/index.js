@@ -23,7 +23,10 @@ const Profile = props => {
   // cleaned
   return (
     <Card>
-      <Text>Hello {authStore.user.user_id}</Text>
+      <Text>
+        Hello {authStore.user.profile.user.first_name}{" "}
+        {authStore.user.profile.user.last_name}!
+      </Text>
       <CardItem>
         <Button danger onPress={authStore.logout}>
           <Text>Logout</Text>
