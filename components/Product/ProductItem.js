@@ -21,9 +21,9 @@ import styles from "./styles";
 
 class ProductItem extends Component {
   state = {
-    // product: this.props.product.id,
-    name: this.props.product.name,
-    size: "L",
+    product: this.props.product.id,
+    // name: this.props.product.name,
+    // size: "L",
     quantity: 1,
     price: this.props.product.price
     // total_price: ""

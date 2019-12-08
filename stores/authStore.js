@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode";
 
 class AuthStore {
   user = null;
+  profile = null;
 
   setUser = async token => {
     if (token) {
@@ -27,6 +28,7 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
+      console.log(user.profile);
       await this.setUser(user.access);
       navigation.navigate("Profile");
     } catch (err) {
