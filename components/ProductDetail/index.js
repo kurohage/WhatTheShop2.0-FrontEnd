@@ -29,11 +29,13 @@ import LoginLogoutButton from "../Buttons/LoginLogoutButton";
 
 class ProductDetail extends Component {
   state = {
-    glasses_on: false,
+    product: this.props.navigation.getParam("product").id,
+    quantity: 1,
+    price: this.props.navigation.getParam("product").price,
     name: this.props.navigation.getParam("product").name,
     size: "",
-    quantity: 1,
-    total_price: ""
+    total_price: "",
+    glasses_on: false
   };
 
   handleAdd = () => {
