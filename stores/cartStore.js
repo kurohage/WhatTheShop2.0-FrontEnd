@@ -39,6 +39,11 @@ class CartStore {
   }
 
   retrieveItems = async () => {
+    await AsyncStorage.setItem("Cart", {
+      name: "Sumo Gamer",
+      size: "L",
+      quantity: 1
+    });
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
     console.log("Items", retrieved_items);
