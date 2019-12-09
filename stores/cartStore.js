@@ -12,19 +12,16 @@ class CartStore {
     else this.items.push(item);
 
     await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
-    console.log("Items Added" + JSON.stringify(this.items));
   };
 
   removeItemFromCart = async item => {
     this.items = this.items.filter(filteringitem => item !== filteringitem);
     await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
-    console.log("Items Now" + JSON.stringify(this.items));
   };
 
   checkoutCart = async () => {
     let list = { items: this.items };
     try {
-      console.log("Before", list);
       await instance.post("order_create/", list);
       this.errors = null;
       this.items = [];
@@ -51,7 +48,6 @@ class CartStore {
   retrieveItems = async () => {
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
-    console.log("Items", retrieved_items);
   };
 }
 

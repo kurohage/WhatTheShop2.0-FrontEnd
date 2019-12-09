@@ -24,9 +24,7 @@ class ProductItem extends Component {
     product: this.props.product.id,
     quantity: 1,
     price: this.props.product.price,
-    name: this.props.product.name,
-    size: "L",
-    total_price: ""
+    name: this.props.product.name
   };
 
   handlePress = () =>

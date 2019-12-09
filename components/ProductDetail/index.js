@@ -33,8 +33,6 @@ class ProductDetail extends Component {
     quantity: 1,
     price: this.props.navigation.getParam("product").price,
     name: this.props.navigation.getParam("product").name,
-    size: "",
-    total_price: "",
     glasses_on: false
   };
 
