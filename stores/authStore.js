@@ -1,21 +1,21 @@
 import { decorate, observable } from "mobx";
-import { AsyncStorage } from "react-native";
-import { instance } from "./instance";
 import jwt_decode from "jwt-decode";
+
+import { instance } from "./instance";
+
+// Async Storage
+import { AsyncStorage } from "react-native";
 
 class AuthStore {
   user = null;
 
   setUser = async token => {
     if (token) {
-      // Save token to localStorage
+      // Save token to localStorage.
       await AsyncStorage.setItem("myToken", token);
-      // If I setItem "myProfile" to profile(user.profile) that I pass with login?
-      // Yet, the issue might be setting two items in asyncstore, not in one step.
-      // Set token to Auth header
+      // Set token to Auth header.
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-      // Set current user
-      //console.log(jwt_decode(token));
+      // Set current user.
       this.user = jwt_decode(token);
     } else {
       await AsyncStorage.removeItem("myToken");
@@ -30,6 +30,8 @@ class AuthStore {
       const user = res.data;
       await this.setUser(user.access);
       navigation.navigate("Profile");
+      // Instead navigate to previous page.
+      // navigation.goBack();
     } catch (err) {
       console.error("something went wrong logging in", err);
     }
@@ -44,12 +46,11 @@ class AuthStore {
 
     if (token) {
       const currentTime = Date.now() / 1000;
-      // Decode token and get user info
+      // Decode token and get user info.
       const user = jwt_decode(token);
-
-      // Check token expiration
+      // Check token expiration.
       if (user.exp >= currentTime) {
-        // Set auth token header
+        // Set Auth token header.
         this.setUser(token);
       } else {
         this.logout();
