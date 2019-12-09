@@ -61,10 +61,18 @@ class ProductDetail extends Component {
             </Right>
           </CardItem>
           <CardItem cardBody>
-            <Image
-              source={{ uri: product.image }}
-              style={{ height: 200, width: null, flex: 1 }}
-            />
+            {!this.state.glasses_on ? (
+              <Image
+                source={{ uri: product.image }}
+                style={{ height: 250, width: null, flex: 1 }}
+              />
+            ) : (
+              <Image
+                source={{ uri: product.image3d }}
+                style={{ height: 250, width: null, flex: 1 }}
+              />
+            )}
+            {console.log("image 3d url: ", product)}
           </CardItem>
           <CardItem>
             <Left>
@@ -80,15 +88,12 @@ class ProductDetail extends Component {
               </Button>
             </Body>
             <Right>
-              <Icon
-                name="glasses"
-                style={
-                  this.state.glasses_on
-                    ? { color: "white" }
-                    : { color: "black" }
-                }
-                onPress={() => this.toggleGlasses}
-              ></Icon>
+              <Button transparent onPress={this.toggleGlasses}>
+                <Icon
+                  name="glasses"
+                  style={{ color: this.state.glasses_on ? "red" : "black" }}
+                ></Icon>
+              </Button>
             </Right>
           </CardItem>
         </Card>
