@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-// Adding this for later, in case when we want to click on a product item and it'll take us to that product's detail page
+// Adding this for later, in case when we want to click on a product item and it'll take us to that product's details page
 import { withNavigation } from "react-navigation";
 
 // NativeBase Components
@@ -10,7 +10,6 @@ class ItemRow extends Component {
   render() {
     const item = this.props.item;
     let image = "http://beanies.mbhbox.net" + item.product.image;
-    //console.log("item row image: ", item.product.image);
 
     return (
       <Card style={{ flex: 0 }}>
