@@ -11,19 +11,26 @@ class CartStore {
     if (product) product.quantity += item.quantity;
     else this.items.push(item);
 
-    AsyncStorage.setItem("Cart", JSON.stringify(this.items));
-    console.log("Items Added" + JSON.stringify(this.items));
+    await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
   };
 
-  removeItemFromCart = item => {
+  removeItemFromCart = async item => {
     this.items = this.items.filter(filteringitem => item !== filteringitem);
-    AsyncStorage.setItem("Cart", JSON.stringify(this.items));
-    console.log("Items Now" + JSON.stringify(this.items));
+    await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
   };
 
-  checkoutCart = () => {
-    this.items = [];
-    alert("Thank you for shopping with us!");
+  checkoutCart = async () => {
+    let list = { items: this.items };
+    try {
+      await instance.post("order_create/", list);
+      this.errors = null;
+      this.items = [];
+      await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
+      alert("Thank you for shopping with us!");
+    } catch (err) {
+      console.log("ERROR", err);
+      this.errors = errToArray(err.response.data);
+    }
   };
 
   get quantity() {
@@ -46,19 +53,6 @@ class CartStore {
     });
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
-    console.log("Items", retrieved_items);
-  };
-
-  passItems = async newItems => {
-    try {
-      const res = await instance.post("order_create/", newItems);
-      const new_items = res.data;
-      items.push(new_items);
-      this.errors = null;
-      console.log("new_items", new_items);
-    } catch (err) {
-      this.errors = errToArray(err.response.data);
-    }
   };
 }
 

@@ -8,8 +8,6 @@ import { Card, CardItem, Text, Button } from "native-base";
 import authStore from "../../stores/authStore";
 
 const Profile = props => {
-  // const profile = await AsyncStorage.getItem("myProfile");
-  // console.log(profile);
   if (!authStore.user)
     return (
       <Card>
@@ -20,12 +18,18 @@ const Profile = props => {
         </CardItem>
       </Card>
     );
-  // cleaned
+
+  console.log("PROFILE", authStore.user.profile.email);
   return (
     <Card>
       <Text>
-        Hello {authStore.user.profile.user.first_name}{" "}
-        {authStore.user.profile.user.last_name}!
+        Hello {authStore.user.user_id}
+        {"\n"}
+        {authStore.user.profile.user.first_name}{" "}
+        {authStore.user.profile.user.last_name}
+        {"\n"}
+        {authStore.user.profile.email}
+        {"\n"}@{authStore.user.profile.user.username}
       </Text>
       <CardItem>
         <Button danger onPress={authStore.logout}>
