@@ -23,6 +23,7 @@ class OrderDetail extends Component {
   render() {
     //order = this.props.navigation.getParam("order"); // uncomment when profile order list is done -- each item should send an order object here
     order = authStore.user.profile.orders[1]; // Take the second order from the array for testing purposes -- works for admin as the user has 2 items in that order
+    //console.log("Order detail: ", order);
 
     const itemList = order.items.map(item => (
       <ItemRow item={item} key={item.id} />
@@ -36,7 +37,7 @@ class OrderDetail extends Component {
             <Left>
               <Body>
                 <Text>{Date(order.date)}</Text>
-                <Text note>By {authStore.user.profile.email}</Text>
+                <Text note>Order ID: {order.id}</Text>
               </Body>
             </Left>
             <Right>

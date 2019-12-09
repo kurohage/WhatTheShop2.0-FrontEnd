@@ -10,6 +10,7 @@ class ItemRow extends Component {
   render() {
     const item = this.props.item;
     let image = "http://beanies.mbhbox.net" + item.product.image;
+    //console.log("item row image: ", item.product.image);
 
     return (
       <Card style={{ flex: 0 }}>
@@ -20,7 +21,6 @@ class ItemRow extends Component {
                 uri: image
               }}
             />
-            {console.log(image)}
             <Body>
               <Text>
                 {item.quantity} of {item.product.name}
