@@ -10,7 +10,8 @@ import {
   Left,
   Right,
   Text,
-  List
+  List,
+  View
 } from "native-base";
 
 // Stores
@@ -28,12 +29,10 @@ class OrderList extends Component {
     ));
 
     return (
-      <Content>
-        <List>
-          {/* Order List */}
-          {orderList}
-        </List>
-      </Content>
+      <View>
+        {/* Order List */}
+        {orderList}
+      </View>
     );
   }
 }

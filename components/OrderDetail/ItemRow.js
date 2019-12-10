@@ -9,7 +9,8 @@ import { Body, Card, CardItem, Left, Text, Thumbnail } from "native-base";
 class ItemRow extends Component {
   render() {
     const item = this.props.item;
-    let image = "http://beanies.mbhbox.net" + item.product.image;
+    //console.log("item image: ", item.product.image);
+    //let image = "http://beanies.mbhbox.net" + item.product.image;
 
     return (
       <Card style={{ flex: 0 }}>
@@ -17,7 +18,7 @@ class ItemRow extends Component {
           <Left>
             <Thumbnail
               source={{
-                uri: image
+                uri: item.product.image
               }}
             />
             <Body>

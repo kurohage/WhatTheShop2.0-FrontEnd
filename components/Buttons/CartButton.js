@@ -1,12 +1,14 @@
 import React from "react";
 import { withNavigation } from "react-navigation";
-import { Icon, Text } from "native-base";
+import { Icon, Spinner, Text } from "native-base";
 import { observer } from "mobx-react";
 
 // Stores
 import cartStore from "../../stores/cartStore";
 
 const CartButton = ({ navigation }) => {
+  if (cartStore.loading) return <Spinner />;
+
   return (
     <>
       <Icon

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // NativeBase Components
-import { List } from "native-base";
+import { List, Spinner } from "native-base";
 
 // Component
 import CheckoutButton from "../Buttons/CheckoutButton";
@@ -13,6 +13,8 @@ import cartStore from "../../stores/cartStore";
 
 class CartList extends Component {
   render() {
+    if (cartStore.loading) return <Spinner />;
+
     const cartItems = cartStore.items.map(item => (
       <CartItem item={item} key={`${item.size} ${item.price}`} />
     ));

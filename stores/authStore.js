@@ -8,6 +8,7 @@ import { AsyncStorage } from "react-native";
 
 class AuthStore {
   user = null;
+  loading = true;
 
   setUser = async token => {
     if (token) {
@@ -17,6 +18,7 @@ class AuthStore {
       instance.defaults.headers.common.Authorization = `Bearer ${token}`;
       // Set current user.
       this.user = jwt_decode(token);
+      this.loading = false;
     } else {
       await AsyncStorage.removeItem("myToken");
       delete instance.defaults.headers.common.Authorization;
@@ -28,7 +30,9 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
+      console.log("USER", user);
       await this.setUser(user.access);
+      console.log("USER SET", this.user);
       navigation.navigate("Profile");
       // Instead navigate to previous page.
       // navigation.goBack();
@@ -37,8 +41,9 @@ class AuthStore {
     }
   };
 
-  logout = () => {
+  logout = navigation => {
     this.setUser();
+    navigation.navigate("ProductList");
   };
 
   checkForToken = async () => {
@@ -69,7 +74,8 @@ class AuthStore {
 }
 
 decorate(AuthStore, {
-  user: observable
+  user: observable,
+  loading: observable
 });
 
 const authStore = new AuthStore();

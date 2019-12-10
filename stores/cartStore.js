@@ -4,6 +4,7 @@ import { instance } from "./instance";
 
 class CartStore {
   items = [];
+  loading = true;
 
   addItemToCart = async item => {
     const product = this.items.find(product => item.name === product.name);
@@ -43,6 +44,7 @@ class CartStore {
 
   get quantity() {
     let total = 0;
+    if (!this.items) return 0;
     this.items.forEach(item => (total += item.quantity));
     return total;
   }
@@ -56,11 +58,13 @@ class CartStore {
   retrieveItems = async () => {
     retrieved_items = await AsyncStorage.getItem("Cart");
     this.items = JSON.parse(retrieved_items);
+    this.loading = false;
   };
 }
 
 decorate(CartStore, {
   items: observable,
+  loading: observable,
   quantity: computed
 });
 

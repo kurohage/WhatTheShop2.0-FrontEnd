@@ -8,7 +8,7 @@ import authStore from "../../stores/authStore";
 
 const LoginLogoutButton = ({ navigation }) => {
   const handlePress = () => {
-    if (!authStore.user) navigation.navigate("Login");
+    navigation.navigate("Login");
   };
   return (
     <>
@@ -18,7 +18,7 @@ const LoginLogoutButton = ({ navigation }) => {
         <Icon
           name="log-out"
           type="Entypo"
-          onPress={authStore.logout}
+          onPress={() => authStore.logout(navigation)}
           containerStyle
         />
       )}
