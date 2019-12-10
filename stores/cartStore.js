@@ -20,12 +20,20 @@ class CartStore {
   };
 
   checkoutCart = async () => {
+    // Secret Weapon
+    // let list = {
+    //   items: this.items,
+    //   id: authStore.user.profile.orders[0].id + 1,
+    //   date: Date().toString()
+    // };
     let list = { items: this.items };
     try {
       await instance.post("order_create/", list);
       this.errors = null;
       this.items = [];
       await AsyncStorage.setItem("Cart", JSON.stringify(this.items));
+      // authStore.user.profile.orders.unshift(list);
+      // console.log("NOW", authStore.user.profile.orders[0]);
       alert("Thank you for shopping with us!");
     } catch (err) {
       console.log("ERROR", err);

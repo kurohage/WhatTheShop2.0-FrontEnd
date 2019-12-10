@@ -14,7 +14,6 @@ const CartItem = ({ item }) => {
     <ListItem style={styles.listStyle}>
       <Left>
         <Text style={styles.itemStyle}> {item.name} </Text>
-        <Text style={styles.itemStyle}> {item.size} </Text>
         <Text style={styles.itemStyle}>{item.quantity}</Text>
         <Text style={styles.itemStyle}>{item.price}</Text>
       </Left>
