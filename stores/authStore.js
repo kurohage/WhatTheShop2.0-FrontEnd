@@ -23,6 +23,7 @@ class AuthStore {
       await AsyncStorage.removeItem("myToken");
       delete instance.defaults.headers.common.Authorization;
       this.user = null;
+      this.loading = true;
     }
   };
 
@@ -30,9 +31,7 @@ class AuthStore {
     try {
       const res = await instance.post("login/", userData);
       const user = res.data;
-      console.log("USER", user);
       await this.setUser(user.access);
-      console.log("USER SET", this.user);
       navigation.navigate("Profile");
       // Instead navigate to previous page.
       // navigation.goBack();
@@ -41,9 +40,8 @@ class AuthStore {
     }
   };
 
-  logout = navigation => {
-    this.setUser();
-    navigation.navigate("ProductList");
+  logout = async navigation => {
+    await this.setUser();
   };
 
   checkForToken = async () => {
