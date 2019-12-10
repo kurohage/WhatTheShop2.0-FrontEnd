@@ -7,13 +7,15 @@ import { observer } from "mobx-react";
 import authStore from "../../stores/authStore";
 
 const LoginLogoutButton = ({ navigation }) => {
-  const handlePress = () => {
-    navigation.navigate("Login");
-  };
   return (
     <>
       {!authStore.user ? (
-        <Icon name="login" type="Entypo" onPress={handlePress} containerStyle />
+        <Icon
+          name="login"
+          type="Entypo"
+          onPress={() => navigation.navigate("Login")}
+          containerStyle
+        />
       ) : (
         <Icon
           name="log-out"
