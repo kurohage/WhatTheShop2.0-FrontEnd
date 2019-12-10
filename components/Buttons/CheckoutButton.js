@@ -19,7 +19,7 @@ const CheckoutButton = ({ navigation }) => {
   };
   return (
     <>
-      <Button full danger onPress={handlePress}>
+      <Button success full onPress={handlePress}>
         <Text>Checkout Total: {cartStore.total_price.toFixed(3)}KD</Text>
       </Button>
     </>

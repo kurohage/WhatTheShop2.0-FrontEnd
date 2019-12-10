@@ -29,8 +29,10 @@ class OrderList extends Component {
 
     return (
       <Content>
-        {/* Order List */}
-        {orderList}
+        <List>
+          {/* Order List */}
+          {orderList}
+        </List>
       </Content>
     );
   }
